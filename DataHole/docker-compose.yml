@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+    datahole:
+        build:
+            context: .
+            dockerfile: ./Dockerfile 
+        image: datahole
+        ports:
+            - 8081:80
+        logging:
+            driver: "json-file"
+            options:
+                max-size: 10m
+                max-file: "3"
+                env: "os"
+                
