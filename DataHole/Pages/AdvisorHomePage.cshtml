@@ -1,0 +1,28 @@
+﻿@page
+@model AdvisorHomePageModel
+@{
+    ViewData["Title"] = "Home page";
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Clients</h1>
+    <table id="accounts" border="1" align="center">
+        <tr>
+            <th>Client Name</th>
+            <th>Client Number</th>
+        </tr>
+        <tr>
+            <td>
+                <a href="@Url.Page("./Users/JoeSchmoe")">Joe Schmoe</a>
+            </td>
+            <td>123456789</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="@Url.Page("./Users/JohnnyRocket")">Johnny Rocket</a>
+            </td>
+            <td>4014758446</td>
+        </tr>
+    </table>
+</div>

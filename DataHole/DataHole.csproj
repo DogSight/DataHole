@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -19,6 +19,12 @@
       <None Update="datahole.sqlite">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Pages\AdvisorHomePage.cshtml.cs">
+        <DependentUpon>AdvisorHomePage.cshtml</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

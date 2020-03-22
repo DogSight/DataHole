@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.Encodings.Web;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
@@ -56,6 +57,7 @@ namespace DataHole.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            Thread.Sleep(2000);
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
                 ModelState.AddModelError(string.Empty, ErrorMessage);
@@ -71,8 +73,14 @@ namespace DataHole.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null) => await DoPostAsync(returnUrl);
+
+        public async Task<IActionResult> OnPostAdvisorSiteAsync(string returnUrl = null) => await DoPostAsync("/AdvisorHomePage");
+
+        public async Task<IActionResult> DoPostAsync(string returnUrl = null)
         {
+            Thread.Sleep(2000);
+
             returnUrl = returnUrl ?? Url.Content("~/");
 
             if (ModelState.IsValid)
